@@ -18,7 +18,7 @@ export function initCanvas(canvas) {
 	function animate() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-		drawExample(ctx, canvas)
+		draw(ctx, canvas)
 
 		requestAnimationFrame(animate)
 	}
