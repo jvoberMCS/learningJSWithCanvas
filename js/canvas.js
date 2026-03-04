@@ -1,11 +1,13 @@
 /*
 Everything in this file you generally don't have to touch.  It takes what you do in draw.js and puts it on the Canvas.  For a beginner, you don't need to know about this right now.
 */
-import { draw } from './draw.js'
+import { draw } from './draw.js' // We need to get the draw function that we wrote in draw.js so we can use it here.  This pulls the draw function in.
 
-export function initCanvas(canvas) {
-	const ctx = canvas.getContext('2d')
+// Make the space where we will "draw" things to the screen.  This is called a canvas.
+export const canvas = document.getElementById('myCanvas')
+export const context = canvas.getContext('2d') // Keeps track of what is going on for us.  Kind of higher level than you need to know at the moment.
 
+export function initCanvas() {
 	// Set canvas size
 	resizeCanvas(canvas)
 
@@ -21,9 +23,9 @@ export function initCanvas(canvas) {
 	}
 
 	function animate() {
-		ctx.clearRect(0, 0, canvas.width, canvas.height)
+		context.clearRect(0, 0, canvas.width, canvas.height)
 
-		draw(ctx, canvas)
+		draw()
 
 		requestAnimationFrame(animate)
 	}
