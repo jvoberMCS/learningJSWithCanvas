@@ -1,3 +1,8 @@
+/*
+Everything in this file you generally don't have to touch.  It takes what you do in draw.js and puts it on the Canvas.  For a beginner, you don't need to know about this right now.
+*/
+import { draw } from './draw.js'
+
 export function initCanvas(canvas) {
 	const ctx = canvas.getContext('2d')
 
@@ -11,8 +16,8 @@ export function initCanvas(canvas) {
 	animate()
 
 	function resizeCanvas(canvas) {
-		canvas.width = window.innerWidth * 0.8
-		canvas.height = window.innerHeight * 0.6
+		canvas.width = window.innerWidth * 0.95
+		canvas.height = window.innerHeight * 0.95
 	}
 
 	function animate() {
@@ -22,16 +27,4 @@ export function initCanvas(canvas) {
 
 		requestAnimationFrame(animate)
 	}
-}
-
-function draw(ctx, canvas) {
-	const time = Date.now() * 0.002
-
-	const x = canvas.width / 2 + Math.cos(time) * 100
-	const y = canvas.height / 2 + Math.sin(time) * 100
-
-	ctx.fillStyle = 'cyan'
-	ctx.beginPath()
-	ctx.arc(x, y, 30, 0, Math.PI * 2)
-	ctx.fill()
 }
